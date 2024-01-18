@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 16:46:41 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/18 20:06:41 by dasargsy         ###   ########.fr       */
+/*   Created: 2024/01/18 21:00:26 by dasargsy          #+#    #+#             */
+/*   Updated: 2024/01/19 00:18:42 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "libft.h"
 
-size_t	ft_strlen(char *c);
-void	*ft_memmove(void	*restrict dest, const void *restrict src, size_t n);
-size_t	ft_strlcpy(char *dest, char *src, size_t n);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*ft_substr(char *s, unsigned int start, size_t len);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putchar_fd(int nb, char c);
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n == -2147483648)
+	{
+		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}
+	if (n < 0)
+	{
+		n = -n;
+		ft_putchar_fd(fd, '-');
+	}
+	if (n < 10)
+	{
+		ft_putchar_fd(fd, n + 48);
+		return ;
+	}
+	ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd(fd, n % 10 + 48);
+}
