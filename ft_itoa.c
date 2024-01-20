@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:52:02 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/18 15:31:30 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/19 20:20:21 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ char	*ft_itoa(int nb)
 		flag = 1;
 	}
 	fill(a, i, nb, flag);
+	a[i] = '\0';
 	return (a);
 }

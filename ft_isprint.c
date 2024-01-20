@@ -6,11 +6,11 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 20:52:35 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/16 21:59:59 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/20 18:18:31 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	return (!(c >= 32 && c != 127));
+	return ((c >= 32 && c < 127));
 }

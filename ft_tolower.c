@@ -6,13 +6,13 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:44:18 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/15 16:44:38 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/20 17:14:03 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int c)
+int	ft_tolower(int c)
 {
-	if (c <= 65 && c >= 90)
+	if (c >= 65 && c <= 90)
 	{
 		return (c + 32);
 	}
