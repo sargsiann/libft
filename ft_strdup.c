@@ -6,33 +6,22 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 19:59:04 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/15 19:59:11 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/21 20:15:14 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int	str_size(char *str)
-{
-	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_strdup(char *str)
+char	*ft_strdup(char const *str)
 {
 	int		size;
 	int		i;
 	char	*a;
 
-	size = str_size(str);
+	size = ft_strlen(str);
 	i = 0;
-	a = (char *)malloc(size);
+	a = (char *)malloc(size + 1);
 	if (str == NULL || !a)
 		return (NULL);
 	while (str[i] != '\0')

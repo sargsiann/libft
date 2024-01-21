@@ -1,4 +1,4 @@
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c99
 FILES = ft_atoi.c \
 ft_bzero.c \
 ft_calloc.c \

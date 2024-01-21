@@ -6,32 +6,31 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:48:48 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/20 16:45:50 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/21 19:01:41 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
+#include <string.h>
 
-size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
+size_t	ft_strlcat(char *restrict	dst, const char *restrict src,
+size_t	maxlen)
 {
-	size_t	i;
-	size_t	j;
+	size_t	srclen;
+	size_t	dstlen;
 
-	i = 0;
-	j = 0;
-	while (dst[i])
+	dstlen = strnlen(dst, maxlen);
+	srclen = strlen(src);
+	if (dstlen == maxlen)
+		return (maxlen + srclen);
+	if (srclen < maxlen - dstlen)
 	{
-		i++;
+		memcpy(dst + dstlen, src, srclen + 1);
 	}
-	if (!(i >= dstsize && dstsize == 0))
+	else
 	{
-		while (src[j] && j < dstsize - i - 1)
-		{
-			dst[i] = src[j];
-			j++;
-			i++;
-		}
+		memcpy(dst + dstlen, src, maxlen - 1);
+		dst[maxlen - 1] = '\0';
 	}
-	dst[i] = '\0';
-	return (i);
+	return (dstlen + srclen);
 }

@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:35:10 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/19 17:28:31 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/21 19:12:46 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	*ft_calloc(size_t num, size_t size)
 
 	i = 0;
 	a = malloc(num * size);
+	if (!a)
+		return (NULL);
 	b = (unsigned char *)(a);
 	while (i < num * size)
 	{

@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 18:22:13 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/15 20:21:45 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/21 19:46:51 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static	int	check(const char *str)
 			count += 1;
 		if (count == 2)
 			return (0);
-		if ((str[i] == 32 || (str[i] >= 8 && str[i] <= 13)) && count > 0)
+		if ((str[i] == 32  || (str[i] >= 8 && str[i] <= 13)) && count > 0)
 			return (0);
 		i++;
 	}

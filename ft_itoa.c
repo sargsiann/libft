@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:52:02 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/19 20:20:21 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/21 19:25:35 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,15 @@ char	*ft_itoa(int nb)
 	if (nb == 0 || nb < 0)
 		i++;
 	a = (char *)malloc(sizeof(char) * i + 1);
+	if (!a)
+		return (NULL);
 	if (nb < 0)
 	{
 		a[0] = '-';
 		flag = 1;
 	}
 	fill(a, i, nb, flag);
-	a[i] = '\0';
+	a[i + 1] = '\0';
 	return (a);
 }
+
