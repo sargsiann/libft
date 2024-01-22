@@ -6,58 +6,102 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 20:39:58 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/16 21:54:58 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/23 00:15:53 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "libft.h"
 
-static	void	fill(char	**splited, char c, char const *s)
+static size_t	count_size(char const *s, char c)
+{
+	size_t	size;
+	size_t	i;
+	int		flag;
+
+	size = 0;
+	i = 0;
+	flag = 0;
+	while (i <= ft_strlen(s))
+	{
+		flag = 0;
+		while (s[i] == c)
+			i++;
+		while (s[i] != c && s[i])
+		{
+			if (!flag)
+			{
+				flag = 1;
+				size++;
+			}
+			i++;
+		}
+		i++;
+	}
+	return (size);
+}
+
+static void	fill_splited(char **splitted, char const *s, char c)
 {
 	size_t	i;
-	size_t	j;
-	size_t	count;
+	size_t	lenght;
+	size_t	sp_c;
 
 	i = 0;
-	j = 1;
-	count = 0;
-	while (s[i])
+	lenght = 0;
+	sp_c = 0;
+	while (i <= ft_strlen(s))
 	{
-		if (s[i] == c || i == 0)
+		lenght = 0;
+		while (s[i] == c)
+			i++;
+		while (s[i] != c && s[i])
 		{
-			j = 1;
-			while (s[i + j] != c && s[i + j] != '\0')
-			{
-				j++;
-			}
-			if (j == 1)
-				splited[count] = ft_substr((char *)s, i, j);
-			else
-				splited[count] = ft_substr((char *)s, i + 1, j - 1);
-			count++;
-			i = i + j - 1;
+			i++;
+			lenght++;
+		}
+		if (lenght > 0)
+		{
+			splitted[sp_c++] = ft_substr((char *)s, i - lenght, lenght);
 		}
 		i++;
 	}
 }
 
-char	**ft_split(char const *s, char c)
+static	int	includes(char c, const char *string)
 {
 	size_t	i;
-	size_t	count;
-	char	**splited;
 
 	i = 0;
-	count = 0;
-	while (s[i])
+	while (string[i])
 	{
-		if (s[i] == c || i == 0)
-		{
-			count++;
-		}
+		if (string[i] == c)
+			return (1);
 		i++;
 	}
-	splited = (char **)malloc(count * sizeof(char *));
-	fill(splited, c, s);
-	return (splited);
+	return (0);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	size;
+	char	**splitted;
+
+	if (!s)
+		return (NULL);
+	size = count_size(s, c);
+	if (!includes(c, s))
+	{
+		splitted = (char **)malloc(sizeof(char *) * (1));
+		splitted[0] = NULL;
+		return (splitted);
+	}
+	splitted = (char **)malloc(sizeof(char *) * (size + 1));
+	if (!splitted)
+		return (NULL);
+	fill_splited(splitted, s, c);
+	splitted[size] = NULL;
+	if (!splitted)
+		return (NULL);
+	return (splitted);
 }

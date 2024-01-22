@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 18:22:13 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/21 21:44:57 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/22 18:54:16 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ static	int	check(const char *str)
 			count += 1;
 		if (count == 2)
 			return (0);
-		if ((str[i] == 32 || (str[i] >= 8 && str[i] <= 13)) && count > 0)
+		if ((str[i] == 32 || (str[i] >= 9 && str[i] <= 13)) && count > 0)
+			return (0);
+		if (!(str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+			&& !(str[i] == '+' || str[i] == '-'))
 			return (0);
 		i++;
 	}
@@ -52,7 +55,7 @@ static	int	isminus(const char *str)
 	return (1);
 }
 
-static void	putval(size_t *i, size_t *j, int *total, int *res)
+static void	putval(size_t *i, size_t *j, long *total, int *res)
 {
 	*total = 0;
 	*res = 1;
@@ -64,7 +67,7 @@ int	ft_atoi(const char *str)
 {
 	size_t	i;
 	size_t	j;
-	int		total;
+	long	total;
 	int		res;
 
 	putval(&i, &j, &total, &res);

@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:52:02 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/21 19:25:35 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/23 00:35:48 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ void	fill(char *a, int i, int nb, int flag)
 {
 	int		k;
 	char	tmp;
+	int		x;
 
 	k = flag;
+	x = 0;
 	while (k < i)
 	{
 		a[k] = abs(nb % 10) + 48;
@@ -36,9 +38,10 @@ void	fill(char *a, int i, int nb, int flag)
 	k = flag;
 	while (k < i / 2)
 	{
-		tmp = a[i - k];
-		a[i - k] = a[k];
+		tmp = a[i - x - 1];
+		a[i - x - 1] = a[k];
 		a[k] = tmp;
+		x++;
 		k++;
 	}
 }
@@ -60,7 +63,7 @@ char	*ft_itoa(int nb)
 	}
 	if (nb == 0 || nb < 0)
 		i++;
-	a = (char *)malloc(sizeof(char) * i + 1);
+	a = (char *)malloc(sizeof(char) * (i + 1));
 	if (!a)
 		return (NULL);
 	if (nb < 0)
@@ -69,7 +72,12 @@ char	*ft_itoa(int nb)
 		flag = 1;
 	}
 	fill(a, i, nb, flag);
-	a[i + 1] = '\0';
+	a[i] = '\0';
 	return (a);
 }
 
+int main()
+{
+	int a = -2147483648;
+	printf("%s",ft_itoa(a));
+}
