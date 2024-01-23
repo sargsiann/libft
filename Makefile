@@ -47,6 +47,9 @@ $(NAME): $(OBJS)
 clean: 
 	rm -rf $(OBJS)
 
+so:
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
+
 fclean:clean
 	rm -rf $(NAME)
 

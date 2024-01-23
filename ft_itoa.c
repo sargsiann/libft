@@ -6,18 +6,16 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:52:02 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/23 00:35:48 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/23 10:54:48 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	abs(int x)
+static int	ft_abs(int x)
 {
 	if (x < 0)
-	{
 		return (-x);
-	}
 	return (x);
 }
 
@@ -28,22 +26,23 @@ void	fill(char *a, int i, int nb, int flag)
 	int		x;
 
 	k = flag;
-	x = 0;
+	x = i;
 	while (k < i)
 	{
-		a[k] = abs(nb % 10) + 48;
+		a[k] = ft_abs(nb % 10) + '0';
 		nb = nb / 10;
 		k++;
 	}
 	k = flag;
-	while (k < i / 2)
+	while (k < i)
 	{
-		tmp = a[i - x - 1];
-		a[i - x - 1] = a[k];
-		a[k] = tmp;
-		x++;
+		tmp = a[k];
+		a[k] = a[i - 1];
+		a[i - 1] = tmp;
 		k++;
+		i--;
 	}
+	a[x] = '\0';
 }
 
 char	*ft_itoa(int nb)
@@ -72,12 +71,5 @@ char	*ft_itoa(int nb)
 		flag = 1;
 	}
 	fill(a, i, nb, flag);
-	a[i] = '\0';
 	return (a);
-}
-
-int main()
-{
-	int a = -2147483648;
-	printf("%s",ft_itoa(a));
 }
