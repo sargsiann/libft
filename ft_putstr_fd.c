@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:29:27 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/21 22:29:40 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/23 15:12:13 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	i;
+	int i;
 
 	i = 0;
-	if (!s || !(fd >= 0 && fd <= 2))
+	if (!s)
 		return ;
-	while (i < ft_strlen(s))
+	while (s[i])
 	{
-		write(fd, &s[i], 1);
+		ft_putchar_fd(s[i], fd);
 		i++;
 	}
 }

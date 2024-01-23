@@ -42,13 +42,13 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 %.o:%.c
-	gcc $(FLAGS) -c $< -o $@
+	cc $(FLAGS) -c $< -o $@
 
 clean: 
 	rm -rf $(OBJS)
 
 so:
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+	cc -nostartfiles -shared -o libft.so $(OBJS)
 
 fclean:clean
 	rm -rf $(NAME)

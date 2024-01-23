@@ -6,12 +6,11 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 18:22:13 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/22 18:54:16 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/23 12:59:51 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 static	int	check(const char *str)
 {
@@ -55,7 +54,7 @@ static	int	isminus(const char *str)
 	return (1);
 }
 
-static void	putval(size_t *i, size_t *j, long *total, int *res)
+static void	putval(size_t *i, size_t *j, long long *total, long long *res)
 {
 	*total = 0;
 	*res = 1;
@@ -67,8 +66,8 @@ int	ft_atoi(const char *str)
 {
 	size_t	i;
 	size_t	j;
-	long	total;
-	int		res;
+	long long	total;
+	long long	res;
 
 	putval(&i, &j, &total, &res);
 	while (str[i] != '\0' && check(str) && total == 0)

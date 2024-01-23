@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 20:39:58 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/23 00:15:53 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/23 13:02:03 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,19 @@ static void	fill_splited(char **splitted, char const *s, char c)
 	}
 }
 
-static	int	includes(char c, const char *string)
-{
-	size_t	i;
-
-	i = 0;
-	while (string[i])
-	{
-		if (string[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
-}
+//static	int	includes(char c, const char *string)
+//{
+//	size_t	i;
+//
+//	i = 0;
+//	while (i <= ft_strlen(string))
+//	{
+//		if (string[i] == c)
+//			return (1);
+//		i++;
+//	}
+//	return (0);
+//}
 
 char	**ft_split(char const *s, char c)
 {
@@ -90,11 +90,11 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	size = count_size(s, c);
-	if (!includes(c, s))
+	if (!*s)
 	{
 		splitted = (char **)malloc(sizeof(char *) * (1));
 		splitted[0] = NULL;
-		return (splitted);
+		return splitted;
 	}
 	splitted = (char **)malloc(sizeof(char *) * (size + 1));
 	if (!splitted)
@@ -105,3 +105,10 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (splitted);
 }
+
+//int main()
+//{
+//	char *a = "tripoule";
+//	char **x = ft_split(a,'\0');
+//	printf("%s",x[0]);
+//}

@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 20:03:22 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/21 21:51:48 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/23 15:47:02 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	if (s && (fd >= 0 && fd <= 2))
-	{
-		ft_putstr_fd(s, fd);
-		write(fd, "\n", 1);
-	}
+	if (!s)
+		return ;
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

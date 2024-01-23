@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:48:30 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/23 09:42:53 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/23 11:36:59 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	a;
 	char	*joined;
-	
+
 	if ((!s1 || !s2))
 		return (NULL);
 	a = ft_strlen(s1) + ft_strlen(s2) + 1;
