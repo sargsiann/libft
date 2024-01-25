@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 20:39:58 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/23 13:02:03 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/25 13:45:04 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ char	**ft_split(char const *s, char c)
 	{
 		splitted = (char **)malloc(sizeof(char *) * (1));
 		splitted[0] = NULL;
-		return splitted;
+		return (splitted);
 	}
 	splitted = (char **)malloc(sizeof(char *) * (size + 1));
 	if (!splitted)

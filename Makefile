@@ -33,26 +33,42 @@ ft_substr.c \
 ft_tolower.c \
 ft_strrchr.c \
 ft_toupper.c
+
+BONUS = ft_lstadd_back.c\
+ft_lstadd_front.c\
+ft_lstlast.c\
+ft_lstnew.c\
+ft_lstsize.c
+
 OBJS = $(FILES:.c=.o)
+BONUSOBJS = $(BONUS:.c=.o)
+
 NAME = libft.a
+HEADER = libft.h
 
 all: $(NAME) 
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-%.o:%.c
+%.o:%.c $(HEADER) -I
+	cc $(FLAGS) -c $< -o $@
+
+%.o:%.c $(BONUS) $(HEADER) -I
 	cc $(FLAGS) -c $< -o $@
 
 clean: 
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) $(BONUSOBJS)
+
+bonus: $(BONUSOBJS)
+	ar rcs $(NAME) $(BONUSOBJS) $(FILES)
 
 so:
-	cc -nostartfiles -shared -o libft.so $(OBJS)
+	cc -nostartfiles -shared -o libft.so $(OBJS) $(BONUSOBJS)\
 
 fclean:clean
 	rm -rf $(NAME)
 
 re:fclean all
 
-.PHONY : all $(NAME) clean fclean re
+.PHONY : all $(NAME) clean fclean re bonus

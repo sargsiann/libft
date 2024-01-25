@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:46:41 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/22 23:36:48 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/25 15:05:45 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-#include <stdio.h>
+# include <stdio.h>
+
+typedef struct s_list
+{
+	void			*data;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void	*s, size_t n);
@@ -51,5 +57,10 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	**ft_split(char const *s, char c);
 char	*ft_strtrim(char const *s1, char const *set);
+t_list	*ft_lstnew(void	*content);
+void	ft_lstadd_front(t_list	**list, t_list	*new);
+int		ft_lstsize(t_list	*lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list	*new);
 
 #endif
