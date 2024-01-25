@@ -36,9 +36,13 @@ ft_toupper.c
 
 BONUS = ft_lstadd_back.c\
 ft_lstadd_front.c\
+ft_lstclear.c\
+ft_lstdelone.c\
 ft_lstlast.c\
 ft_lstnew.c\
-ft_lstsize.c
+ft_lstsize.c\
+ft_lstiter.c\
+ft_lstmap.c
 
 OBJS = $(FILES:.c=.o)
 BONUSOBJS = $(BONUS:.c=.o)
@@ -52,15 +56,15 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 %.o:%.c $(HEADER) -I
-	cc $(FLAGS) -c $< -o $@
+	cc $(FLAGS) -c $< -o $@ 
 
 %.o:%.c $(BONUS) $(HEADER) -I
-	cc $(FLAGS) -c $< -o $@
+	cc $(FLAGS) -c $< -o $@ $(HEADER) -I
 
 clean: 
 	rm -rf $(OBJS) $(BONUSOBJS)
 
-bonus: $(BONUSOBJS)
+bonus: $(BONUSOBJS) $(FILES)
 	ar rcs $(NAME) $(BONUSOBJS) $(FILES)
 
 so:
