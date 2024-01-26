@@ -6,11 +6,12 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 18:22:13 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/23 12:59:51 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/26 18:57:30 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
 static	int	check(const char *str)
 {
@@ -19,7 +20,7 @@ static	int	check(const char *str)
 
 	i = 0;
 	count = 0;
-	while (!(str[i] >= '0' && str[i] <= '9'))
+	while (!(str[i] >= '0' && str[i] <= '9') && str[i])
 	{
 		if (str[i] == '+' || str[i] == '-')
 			count += 1;
@@ -42,7 +43,7 @@ static	int	isminus(const char *str)
 	i = 0;
 	if (check(str))
 	{
-		while (!(str[i] >= '0' && str[i] <= '9'))
+		while (!(str[i] >= '0' && str[i] <= '9') && str[i])
 		{
 			if (str[i] == '-')
 			{
@@ -64,13 +65,13 @@ static void	putval(size_t *i, size_t *j, long long *total, long long *res)
 
 int	ft_atoi(const char *str)
 {
-	size_t	i;
-	size_t	j;
+	size_t		i;
+	size_t		j;
 	long long	total;
 	long long	res;
 
 	putval(&i, &j, &total, &res);
-	while (str[i] != '\0' && check(str) && total == 0)
+	while (str[i] != '\0' && check(str))
 	{
 		if (str[i] >= '0' && str[i] <= '9')
 		{
@@ -79,13 +80,22 @@ int	ft_atoi(const char *str)
 				if (j++ != 0)
 					res *= 10;
 			}
-			while (res > 0)
+			while (res > 0 && str[i])
 			{
 				total += res * (str[i++] - 48);
 				res = res / 10;
 			}
+			return (isminus(str) * (total));
 		}
 		i++;
 	}
-	return (isminus(str) * (total));
+	return (0);
 }
+
+//int main()
+//{
+//	char a[] = "000074 7897";
+//	printf("%d_\n",ft_atoi(a));
+//	printf("%d_\n",atoi(a));
+//
+//}

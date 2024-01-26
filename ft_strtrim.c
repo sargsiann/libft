@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:26:21 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/23 00:06:25 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/26 23:20:08 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,37 @@ static	int	includes(char c, const char *string)
 			return (1);
 		i++;
 	}
-	if (string[i] == '\0' && string[i] == c)
-		return (1);
 	return (0);
 }
 
 char	*ft_strtrim(const char	*s1, const char	*s2)
 {
 	size_t	i;
-	size_t	sz1;
+	size_t	s1_end;
+	char	*trimmed;
 
 	i = 0;
-	if (!s1)
+	if (!s1 || !s2)
 		return (NULL);
-	sz1 = ft_strlen((char *)s1);
-	while (includes(s1[i], s2))
+	s1_end = ft_strlen((char *)s1);
+	while (includes(s1[i], s2) && s1[i])
 	{
 		i++;
 	}
-	while (includes(s1[sz1], s2))
+	while (includes(s1[s1_end - 1], s2) && s1_end > i)
 	{
-		sz1--;
+		s1_end--;
 	}
-	return (ft_substr((char *)s1, i, sz1 - i + 1));
+	trimmed = (char *)malloc(sizeof(char) * s1_end - i + 1);
+	if (!trimmed)
+		return (NULL);
+	ft_memmove(trimmed, s1 + i, s1_end - i);
+	trimmed[s1_end - i] = '\0';
+	return (trimmed);
 }
 
+//int main()
+//{
+//	char *a = ft_strtrim("xx Davv xx","x");
+//	printf("%s",a);
+//}
