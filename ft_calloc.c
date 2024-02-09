@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:35:10 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/21 19:12:46 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:32:56 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,8 @@ void	*ft_calloc(size_t num, size_t size)
 	}
 	return (a);
 }
+
+//int main()
+//{
+//	ft_calloc(-1,-2);
+//}

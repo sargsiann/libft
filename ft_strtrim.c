@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:26:21 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/26 23:20:08 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/02/03 18:31:35 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_strtrim(const char	*s1, const char	*s2)
 	{
 		s1_end--;
 	}
-	trimmed = (char *)malloc(sizeof(char) * s1_end - i + 1);
+	trimmed = (char *)malloc(sizeof(char) * (s1_end - i + 1));
 	if (!trimmed)
 		return (NULL);
 	ft_memmove(trimmed, s1 + i, s1_end - i);

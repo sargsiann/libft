@@ -6,24 +6,24 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:52:02 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/23 10:54:48 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/02/05 23:54:43 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_abs(int x)
+static long	ft_abs(long x)
 {
 	if (x < 0)
 		return (-x);
 	return (x);
 }
 
-void	fill(char *a, int i, int nb, int flag)
+void	fill(char *a, long i, long nb, int flag)
 {
-	int		k;
+	long	k;
 	char	tmp;
-	int		x;
+	long	x;
 
 	k = flag;
 	x = i;
@@ -45,10 +45,10 @@ void	fill(char *a, int i, int nb, int flag)
 	a[x] = '\0';
 }
 
-char	*ft_itoa(int nb)
+char	*ft_itoa(long nb)
 {
-	int		i;
-	int		j;
+	long	i;
+	long	j;
 	char	*a;
 	int		flag;
 

@@ -6,13 +6,13 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 18:49:04 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/20 18:00:44 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:59:00 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void	*restrict dest, const void *restrict src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	*d;
 	unsigned char	*s;
@@ -40,10 +40,3 @@ void	*ft_memmove(void	*restrict dest, const void *restrict src, size_t n)
 	}
 	return (dest);
 }
-/*int main()
-{
-	char s[] = {65, 66, 67, 68, 69, 0, 45};
-	char s0[] = { 0,  0,  0,  0,  0,  0, 0};
-	ft_memmove(s0,s,7);
-	printf("%s  gegerhetr",s0);
-}*/

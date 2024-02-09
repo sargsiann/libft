@@ -6,11 +6,10 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 20:39:58 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/25 13:45:04 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:08:51 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "libft.h"
 
 static size_t	count_size(char const *s, char c)
@@ -41,6 +40,19 @@ static size_t	count_size(char const *s, char c)
 	return (size);
 }
 
+static	void	free_splited(char **splitted)
+{
+	size_t	i;
+
+	i = 0;
+	while (splitted[i] != NULL)
+	{
+		free(splitted[i]);
+		i++;
+	}
+	free(splitted);
+}
+
 static void	fill_splited(char **splitted, char const *s, char c)
 {
 	size_t	i;
@@ -61,26 +73,12 @@ static void	fill_splited(char **splitted, char const *s, char c)
 			lenght++;
 		}
 		if (lenght > 0)
-		{
 			splitted[sp_c++] = ft_substr((char *)s, i - lenght, lenght);
-		}
+		if (!splitted)
+			free_splited(splitted);
 		i++;
 	}
 }
-
-//static	int	includes(char c, const char *string)
-//{
-//	size_t	i;
-//
-//	i = 0;
-//	while (i <= ft_strlen(string))
-//	{
-//		if (string[i] == c)
-//			return (1);
-//		i++;
-//	}
-//	return (0);
-//}
 
 char	**ft_split(char const *s, char c)
 {
@@ -98,17 +96,13 @@ char	**ft_split(char const *s, char c)
 	}
 	splitted = (char **)malloc(sizeof(char *) * (size + 1));
 	if (!splitted)
+	{
+		free(splitted);
 		return (NULL);
+	}
 	fill_splited(splitted, s, c);
 	splitted[size] = NULL;
 	if (!splitted)
 		return (NULL);
 	return (splitted);
 }
-
-//int main()
-//{
-//	char *a = "tripoule";
-//	char **x = ft_split(a,'\0');
-//	printf("%s",x[0]);
-//}

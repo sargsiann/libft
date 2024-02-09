@@ -6,12 +6,11 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 18:22:13 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/26 18:57:30 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:13:09 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 static	int	check(const char *str)
 {
@@ -91,11 +90,3 @@ int	ft_atoi(const char *str)
 	}
 	return (0);
 }
-
-//int main()
-//{
-//	char a[] = "000074 7897";
-//	printf("%d_\n",ft_atoi(a));
-//	printf("%d_\n",atoi(a));
-//
-//}

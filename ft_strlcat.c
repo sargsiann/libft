@@ -6,7 +6,7 @@
 /*   By: dasargsy <dasargsy@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:48:48 by dasargsy          #+#    #+#             */
-/*   Updated: 2024/01/26 23:45:07 by dasargsy         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:35:58 by dasargsy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	i = 0;
 	if (!dst && dstsize == 0)
-		return ft_strlen(src);
+		return (ft_strlen(src));
 	j = ft_strlen(dst);
 	k = ft_strlen(src);
 	if (dstsize == 0)
@@ -35,12 +35,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst[j + i] = '\0';
 	return (j + k);
 }
-//int main()
-//{
-//	char *dst;
-//
-//	dst = (char *)malloc(sizeof(char) * 15);
-//	memset(dst,'r',15);
-//	ft_strlcat(dst,"lorem ipsum dolor sit amet",5);
-//	printf("%s",dst);
-//}

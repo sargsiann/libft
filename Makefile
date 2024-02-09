@@ -62,16 +62,13 @@ $(NAME): $(OBJS)
 	cc $(FLAGS) -c $< -o $@ $(HEADER) -I
 
 clean: 
-	rm -rf $(OBJS) $(BONUSOBJS)
+	rm -f $(OBJS) $(BONUSOBJS)
 
 bonus: $(BONUSOBJS) $(FILES)
 	ar rcs $(NAME) $(BONUSOBJS) $(FILES)
 
-so:
-	cc -nostartfiles -shared -o libft.so $(OBJS) $(BONUSOBJS)\
-
 fclean:clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re:fclean all
 
